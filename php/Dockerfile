@@ -1,3 +1,5 @@
+#dockerFile code
+
 FROM php:8.2-apache
 
 # Instalação das extensões PHP
