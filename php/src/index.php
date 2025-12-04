@@ -1,2 +1,2 @@
 <?php
-echo "Aplicação da luz dos bichos - funcionando!";
+require 'db.php'; // inclui conexão e criação de tabela

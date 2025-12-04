@@ -10,6 +10,11 @@ services:
       - ./php/src:/var/www/html
     depends_on:
       - db
+    environment: #criando as variaveis de ambiente
+      - DB_HOST=db
+      - DB_NAME=luz_bichos
+      - DB_USER=luz_bichos_user
+      - DB_PASS=luz_bichos_pass
 
   db:
     image: mysql:8.0
@@ -23,6 +28,15 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+  adminer: #criando o adminer para visualização das tabelas criadas
+    image: adminer
+    container_name: luz_dos_bichos_adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
 
 volumes:
   db_data:
